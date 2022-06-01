@@ -1,6 +1,8 @@
+//Models are to be named with upper case
+//Models are template that you want resource to have
 const mongoose = require('mongoose');
 
-const UserSchema = mongoose.Schema({
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -23,4 +25,8 @@ const UserSchema = mongoose.Schema({
   },
 });
 
-modules.export = User = mongoose.model('user', UserSchema);
+/*Same as below code
+User = mongoose.model('user', UserSchema)
+modules.export = User*/
+//To access => User.User (?)
+module.exports = mongoose.model('user', UserSchema);
